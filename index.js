@@ -1,20 +1,55 @@
-
 const socket = io('http://localhost:3001', {
   withCredentials: true,
 });
 
-let dataTictactoe = {};
+
+// declaration variable 
 let roomId = false;
+//
+let dataTictactoe = {};
 let user = {};
+
+if(getCookie('roomId') === '') {
+  roomId = makeid(8);
+  user = {
+    id: makeid(4)
+  }
+} else {
+
+}
 
 socket.on('playerAction', handlePlayerAction);
 
+function initGame() {
+  // user.symbol = 'x';
+  
+  // socket.emit('initGame', {
+  //   roomId : roomId,
+  //   user: user,
+  // });
+
+  // setCookie('roomId', roomId);
+  // setCookie('user', user);
+
+  // dom javascript
+  document.getElementById('menu').classList.add('none');
+  document.getElementById('game').classList.remove('none');
+  const statiTitle = 'Code';
+  const title = statiTitle + ' : ' + roomId;
+  document.getElementById('title').innerText= title;
+  
+}
+
 function boxClicked(component) {
-  socket.emit('hitBox', {
-    user,
-    roomId,
-    id: component.id,
-  })
+  // socket.emit('hitBox', {
+  //   user,
+  //   roomId,
+  //   id: component.id,
+  // })
+
+  // dom javascript
+  component.innerHTML = "<img alt='' src='/assets/x-solid.svg'/>";
+
 }
 
 function handlePlayerAction(data) {
@@ -24,21 +59,7 @@ function handlePlayerAction(data) {
   dataTictactoe.map(([id, symbol]) => {
     document.getElementById(id).innerHTML = "<img alt='' src='/assets/"+symbol+".svg'/>";
   })
-  
 }
 
-
-
-// RandomClient
-function makeid(length) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * 
-       charactersLength));
-   }
-   return result;
-}
 
 

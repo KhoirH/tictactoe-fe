@@ -8,20 +8,40 @@
 </style>
 </head>
 <body class="body-style">
-  <div class="wrapper">
-    <div class="wrapper-tictactoe" >
-      <div class="wrapper-box" id="box-1" onclick="boxClicked(this)"></div>
-      <div class="wrapper-box" id="box-2" onclick="boxClicked(this)"></div>
-      <div class="wrapper-box" id="box-3" onclick="boxClicked(this)"></div>
-      <div class="wrapper-box" id="box-4" onclick="boxClicked(this)"></div>
-      <div class="wrapper-box" id="box-6" onclick="boxClicked(this)"></div>
-      <div class="wrapper-box" id="box-7" onclick="boxClicked(this)"></div>
-      <div class="wrapper-box" id="box-8" onclick="boxClicked(this)"></div>
-      <div class="wrapper-box" id="box-9" onclick="boxClicked(this)"></div>
-      <div class="wrapper-box" id="box-10" onclick="boxClicked(this)"></div>
+  <div class="wrapper " >
+    <div id="menu" class="wrapper-menu-game">
+      <h4 style="margin: 0;">Tictactoe</h4>
+      
+      <div>
+        <form>
+          <input placeholder="Masukan kode" class="input"/>
+          <button class="btn">Join</button>
+        </form>
+      </div>
+
+      <div>
+        <button class="btn" onclick="initGame()">Create Game</button>
+      </div>
+    
+    </div>
+    <div id="game" class="wrapper-game none">
+      <h4 id="title"></h4>
+      <div class="wrapper-tictactoe" >
+        <div class="wrapper-box" id="box-1" onclick="boxClicked(this)"></div>
+        <div class="wrapper-box" id="box-2" onclick="boxClicked(this)"></div>
+        <div class="wrapper-box" id="box-3" onclick="boxClicked(this)"></div>
+        <div class="wrapper-box" id="box-4" onclick="boxClicked(this)"></div>
+        <div class="wrapper-box" id="box-6" onclick="boxClicked(this)"></div>
+        <div class="wrapper-box" id="box-7" onclick="boxClicked(this)"></div>
+        <div class="wrapper-box" id="box-8" onclick="boxClicked(this)"></div>
+        <div class="wrapper-box" id="box-9" onclick="boxClicked(this)"></div>
+        <div class="wrapper-box" id="box-10" onclick="boxClicked(this)"></div>
+      </div>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+  <script src="utilis/cookieUtilis.js"></script>
+  <script src="utilis/randomUtilis.js"></script>
   <script src="index.js" ></script>
 </body>
 </html>
