@@ -13,8 +13,8 @@
       <h4 style="margin: 0;">Tictactoe</h4>
       
       <div>
-        <form>
-          <input placeholder="Masukan kode" class="input"/>
+        <form onsubmit="return joinGame(event, this)">
+          <input placeholder="Masukan kode" class="input" id="input-code"/>
           <button class="btn">Join</button>
         </form>
       </div>
@@ -25,17 +25,20 @@
     
     </div>
     <div id="game" class="wrapper-game none">
-      <h4 id="title"></h4>
+      <div class="box-state">
+        <h4 id="title"></h4>
+        <h4 id="status-game"></h4>
+      </div>
       <div class="wrapper-tictactoe" >
         <div class="wrapper-box" id="box-1" onclick="boxClicked(this)"></div>
         <div class="wrapper-box" id="box-2" onclick="boxClicked(this)"></div>
         <div class="wrapper-box" id="box-3" onclick="boxClicked(this)"></div>
         <div class="wrapper-box" id="box-4" onclick="boxClicked(this)"></div>
+        <div class="wrapper-box" id="box-5" onclick="boxClicked(this)"></div>
         <div class="wrapper-box" id="box-6" onclick="boxClicked(this)"></div>
         <div class="wrapper-box" id="box-7" onclick="boxClicked(this)"></div>
         <div class="wrapper-box" id="box-8" onclick="boxClicked(this)"></div>
         <div class="wrapper-box" id="box-9" onclick="boxClicked(this)"></div>
-        <div class="wrapper-box" id="box-10" onclick="boxClicked(this)"></div>
       </div>
     </div>
   </div>

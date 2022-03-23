@@ -65,3 +65,12 @@
 .img-tictactoe-x {
   width: 50%;
 }
+
+.box-state {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#status-game {
+
+}
