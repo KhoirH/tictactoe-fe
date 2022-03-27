@@ -1,30 +1,22 @@
-const socket = io('http://localhost:3001', {
+// socket io herokuapp
+const socket = io('https://tictactoe-pi-master-qcumk3lqdx.herokuapp.com/', {
   withCredentials: true,
+  origin: '*',
 });
 
 
 // declaration variable 
-let roomId = false;
-//
+let roomId = makeid(8);
 let dataTictactoe = {};
-let user = {};
+let user = {
+  id: makeid(4)
+};
 let statusGame = false;
 let activePlayUser = false;
-
-if(getCookie('roomId') === '') {
-  roomId = makeid(8);
-  user = {
-    id: makeid(4)
-  }
-} else {
-
-}
 
 socket.on('playerAction', handlePlayerAction);
 
 function startGameDom() {
-  // setCookie('roomId', roomId);
-  // setCookie('user', user);
 
   // dom javascript
   document.getElementById('menu').classList.add('none');
@@ -32,7 +24,9 @@ function startGameDom() {
   const statiTitle = 'Code';
   const title = statiTitle + ' : ' + roomId;
   document.getElementById('title').innerText= title;
+
 }
+
 function initGame() {
   // socket init game
   user.symbol = 'x';
@@ -45,7 +39,8 @@ function initGame() {
 
 }
 
-function joinGame(event, component) {
+// join game
+function joinGame(event) {
   event.preventDefault();
   const inputCodeVal = document.getElementById('input-code').value;
   roomId = inputCodeVal;
@@ -59,6 +54,7 @@ function joinGame(event, component) {
   }
 }
 
+// click the player
 function boxClicked(component) {
 
   if(statusGame === 'start' && activePlayUser === user.id) {
@@ -71,12 +67,12 @@ function boxClicked(component) {
   }
 }
 
+// player play
 function handlePlayerAction(data) {
   dataTictactoe = data.dataTictactoe;
   dataArrayTictactoe = Object.entries(dataTictactoe);
   statusGame = data.status;
   activePlayUser = data.activeUser;
-
 
   if(data.status === 'end') {
     if (data.winner === user.id) {
@@ -96,7 +92,7 @@ function handlePlayerAction(data) {
   }
 
   dataArrayTictactoe.map(([id, object]) => {
-    document.getElementById('box-'+id).innerHTML = "<img alt='' src='/assets/"+object.symbol+"-solid.svg'/>";
+    document.getElementById('box-'+id).innerHTML = "<img alt='' class='"+object.symbol+"-style' src='/assets/"+object.symbol+"-solid.svg'/>";
   })
 }
 

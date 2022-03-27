@@ -71,6 +71,12 @@
   flex-direction: row;
   justify-content: space-between;
 }
-#status-game {
-
+.x-style, .o-style {
+  width: 50%;
+}
+.x-style {
+  fill: red;
+}
+.o-style {
+  fill: green;
 }
