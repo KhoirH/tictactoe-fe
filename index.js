@@ -92,7 +92,6 @@ function handlePlayerAction(data) {
   }
 
   dataArrayTictactoe.map(([id, object]) => {
-    if()
     document.getElementById('box-'+id).innerHTML = "<img alt='' class='"+object.symbol+"-style' src='https://kampusdraf.com/game/assets/"+object.symbol+"-solid.svg'/>";
   })
 }
