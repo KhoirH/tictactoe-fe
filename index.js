@@ -57,7 +57,7 @@ function joinGame(event) {
 // click the player
 function boxClicked(component) {
 
-  if(statusGame === 'start' && activePlayUser === user.id) {
+  if(statusGame === 'start' && activePlayUser === user.id && component.innerHTML === '') {
     // socket hitbox
     socket.emit('hitBox', {
       user: user,
