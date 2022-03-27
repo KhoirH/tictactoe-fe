@@ -74,14 +74,6 @@ function handlePlayerAction(data) {
   statusGame = data.status;
   activePlayUser = data.activeUser;
 
-  if(data.status === 'end') {
-    if (data.winner === user.id) {
-      alert('You are winner');
-    } else {
-      alert('You are looser');
-    }
-    window.location.reload();
-  }
   //dom status
   document.getElementById('status-game').innerText= statusGame;
   // change color
@@ -94,6 +86,16 @@ function handlePlayerAction(data) {
   dataArrayTictactoe.map(([id, object]) => {
     document.getElementById('box-'+id).innerHTML = "<img alt='' class='"+object.symbol+"-style' src='https://kampusdraf.com/game/assets/"+object.symbol+"-solid.svg'/>";
   })
+
+
+  if(data.status === 'end') {
+    if (data.winner === user.id) {
+      alert('You are winner');
+    } else {
+      alert('You are looser');
+    }
+    window.location.reload();
+  }
 }
 
 
